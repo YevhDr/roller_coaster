@@ -1,0 +1,441 @@
+"id","name","group","freq","modularity_class"
+"node_1","One America News Network","media",4,0
+"node_10","Jim Jordan","politician",7,12
+"node_100","Micah Meadowcroft","political expert",4,3
+"node_101","Douglas Macgregor","security expert",11,7
+"node_102","Jamie White","journalist",2,0
+"node_103","Kelen McBreen","journalist",2,0
+"node_104","Breitbart News","media",11,7
+"node_105","Ken Cuccinelli","politician",2,3
+"node_106","Russell Vought","politician",7,3
+"node_107","Wade Miller","political expert",2,3
+"node_108","Justin Logan","political expert",2,3
+"node_109","Benny Johnson","journalist",4,8
+"node_11","Donald Trump","politician",132,12
+"node_110","Scott Ritter","security expert",13,1
+"node_111","Robert Wright","journalist",2,16
+"node_112","Charlie Kirk","journalist",7,7
+"node_113","Gregory Hood","journalist",2,12
+"node_114","Simona Mangiante Papadopoulos","social media influencer",4,12
+"node_115","George Demetrios Papadopoulos","political expert",5,12
+"node_116","American Renaissance","media",4,12
+"node_117","Mike Lee","politician",1,12
+"node_118","Tristan Tate","social media influencer",2,5
+"node_119","Andrew Tate","social media influencer",2,5
+"node_12","Dan Caldwell","political expert",9,3
+"node_120","Thomas Massie","politician",2,8
+"node_121","Stephen Miller","political advisor",3,12
+"node_122","Dan Bongino","journalist",3,8
+"node_123","Jeanine Pirro","journalist",1,8
+"node_124","Lisa Boothe","journalist",2,8
+"node_125","Jesse Watters","journalist",2,8
+"node_126","Ronny Jackson","politician",1,12
+"node_127","Juanita Broaddrick","social media influencer",1,12
+"node_128","Warren Davidson","politician",1,12
+"node_129","The Grayzone","media",37,1
+"node_13","The Center for Renewing America","think tank",19,3
+"node_130","Aaron Mate","journalist",13,6
+"node_131","Andrii Telizhenko","political expert",5,8
+"node_132","Alexander Rubinstein","journalist",3,1
+"node_133","John Mearsheimer","political expert",3,3
+"node_134","Mark Alford","politician",1,12
+"node_135","Liam Cosgrove","journalist",6,8
+"node_136","Kit Klarenberg","journalist",5,0
+"node_137","Heather Kaiser","security expert",4,1
+"node_138","Anya Parampil","journalist",11,1
+"node_139","Jeremy Loffredo","journalist",4,1
+"node_14","Stand Together","think tank",18,3
+"node_140","T.J. Coles","journalist",1,1
+"node_141","Lindsey Snell","journalist",3,1
+"node_142","Cory Popp","social media influencer",3,1
+"node_143","Dan Cohen","journalist",6,1
+"node_144","Ann Garrison","journalist",4,2
+"node_145","Kevin Gosztola","journalist",2,1
+"node_146","Alan MacLeod","journalist",3,1
+"node_147","Ben Norton","journalist",4,1
+"node_148","Gareth Porter","journalist",6,6
+"node_149","Moss Robeson","journalist",2,1
+"node_15","Charles Koch","businessman",15,3
+"node_150","Stansfield Smith","journalist",2,1
+"node_151","Deborah Armstrong","journalist",2,1
+"node_152","Natylie Baldwin","journalist",2,1
+"node_153","Yasha Levine","journalist",2,1
+"node_154","Tim Burchett","politician",2,12
+"node_155","Mike Bost","politician",1,12
+"node_156","Darren Bailey","politician",1,12
+"node_157","Kat Cammack","politician",1,12
+"node_158","Jerry Carl","politician",1,12
+"node_159","Ben Cline","politician",5,12
+"node_16","Daniel L. Davis","security expert",6,3
+"node_160","Michael Cloud","politician",1,12
+"node_161","Andrew Clyde","politician",1,12
+"node_162","Mike Collins","politician",3,12
+"node_163","James Comer","politician",1,12
+"node_164","Monica De La Cruz","politician",1,12
+"node_165","Byron Donalds","politician",5,12
+"node_166","Jeff Duncan","politician",1,12
+"node_167","Chuck Edwards","politician",3,12
+"node_168","Christian Reagan","politician",3,12
+"node_169","Ron Estes","politician",2,18
+"node_17","Vivek Ramaswamy","politician",9,8
+"node_170","Brad Finstad","politician",3,12
+"node_171","Mike Braun","politician",4,12
+"node_172","Roger Marshall","politician",4,12
+"node_173","Clay Higgins","politician",3,12
+"node_174","Eli Crane","politician",4,12
+"node_175","Michelle Fischbach","politician",4,12
+"node_176","Scott Fitzgerald","politician",9,12
+"node_177","Scott Franklin","politician",2,17
+"node_178","Russell Fry","politician",8,12
+"node_179","Russ Fulcher","politician",1,12
+"node_18","Anatol Lieven","political expert",14,3
+"node_180","Mike Garcia","politician",2,17
+"node_181","Bob Good","politician",2,12
+"node_182","Lance Gooden","politician",4,12
+"node_183","Glenn Grothman","politician",1,12
+"node_184","Diana Harshbarger","politician",1,12
+"node_185","Kevin Hern","politician",1,12
+"node_186","Erin Houchin","politician",1,12
+"node_187","Wesley Hunt","politician",1,12
+"node_188","John Joyce","politician",2,10
+"node_189","Mike Kelly","politician",2,10
+"node_19","Paul Craig Roberts","politician",5,0
+"node_190","Nick LaLota","politician",2,13
+"node_191","Jake LaTurner","politician",1,12
+"node_192","Debbie Lesko","politician",1,12
+"node_193","Nancy Mace","politician",1,12
+"node_194","Tracey Mann","politician",2,18
+"node_195","Brian Mast","politician",1,12
+"node_196","Lisa McClain","politician",1,12
+"node_197","Daniel Meuser","politician",4,10
+"node_198","Carol Miller","politician",3,12
+"node_199","Max Miller","politician",1,12
+"node_2","The Daily Wire","media",13,7
+"node_20","Steven Simon","political expert",4,3
+"node_200","John Moolenaar","politician",1,12
+"node_201","Alexander Mooney","politician",2,12
+"node_202","Barry Moore","politician",4,12
+"node_203","Greg Murphy","politician",2,12
+"node_204","Zachary Nunn","politician",2,12
+"node_205","Andrew Ogles","politician",4,12
+"node_206","August Pfluger","politician",2,12
+"node_207","Bill Posey","politician",6,12
+"node_208","John Rose","politician",5,12
+"node_209","Matthew Rosendale","politician",6,12
+"node_21","Quincy Institute for Responsible Statecraft","think tank",19,3
+"node_210","Chip Roy","politician",3,12
+"node_211","George Santos","politician",2,13
+"node_212","Keith Self","politician",1,12
+"node_213","Jason Smith","politician",2,12
+"node_214","Pete Stauber","politician",4,12
+"node_215","Greg Steube","politician",6,12
+"node_216","Claudia Tenney","politician",1,12
+"node_217","William Timmons","politician",1,12
+"node_218","Derrick Van Orden","politician",3,12
+"node_219","Roger Williams","politician",3,12
+"node_22","Responsible Statecraft","media",22,3
+"node_220","Ryan Zinke","politician",1,12
+"node_221","Max Blumenthal","journalist",36,1
+"node_222","Wyatt Reed","journalist",6,1
+"node_223","Tommy Tuberville","politician",4,12
+"node_224","Sumantra Maitra","journalist",4,3
+"node_225","Jeff Clark","political advisor",5,3
+"node_226","Alex Bruesewitz","political advisor",3,12
+"node_227","Jodie Evans","political activist",3,6
+"node_228","Jamaal Bowman","politician",16,4
+"node_229","Summer Lee","politician",16,4
+"node_23","Trita Parsi","political expert",4,3
+"node_230","Greg Casar","politician",16,4
+"node_231","Ayanna Pressley","politician",16,4
+"node_232","Ilhan Omar","politician",16,4
+"node_233","Cori Bush","politician",16,4
+"node_234","Alexandria Ocasio-Cortez","politician",18,4
+"node_235","Rashida Tlaib","politician",16,4
+"node_236","Madison Cawthorn","politician",4,12
+"node_237","Defense Priorities","think tank",6,3
+"node_238","Monthly Review","media",4,15
+"node_239","Samuel Сharap","political expert",2,14
+"node_24","Andrew Bacevich","security expert",10,6
+"node_240","Tulsi Gabbard","politician",15,1
+"node_241","Bradley Blankenship","journalist",2,6
+"node_242","Graham E. Fuller","political expert",2,14
+"node_243","Melissa Garriga","political activist",1,6
+"node_244","Crystal Zevon","writer",1,6
+"node_245","George Koo","journalist",2,1
+"node_246","Ben Swann","journalist",5,0
+"node_247","Caleb Maupin","journalist",16,1
+"node_248","Ross Barkan","journalist",4,6
+"node_249","Peace in Ukraine Coalition","NGO",16,6
+"node_25","The American Conservative","media",30,3
+"node_250","Lev Golinkin","journalist",7,6
+"node_251","Massachusetts Peace Action","NGO",20,6
+"node_252","RootsAction","NGO",6,6
+"node_253","Veterans For Peace","NGO",12,6
+"node_254","Doug Bandow","political expert",4,3
+"node_255","Patrick Basham","political expert",2,3
+"node_256","Steven Seagal","actor",1,1
+"node_257","American Student Union","NGO",2,1
+"node_258","Environmentalists Against War","NGO",2,1
+"node_259","Experiential Peace Organizing Committee","NGO",3,6
+"node_26","Tucker Carlson","journalist",35,8
+"node_260","Fellowship of Reconciliation","NGO",3,6
+"node_261","Just World Educational","think tank",3,6
+"node_262","PAX Christi USA","NGO",1,6
+"node_263","Resist US-Led War Movement","NGO",1,6
+"node_264","People's Party","political party",17,1
+"node_265","Saving Humanity and Planet Earth","NGO",2,6
+"node_266","United for Peace and Justice","NGO",1,6
+"node_267","Women Against Military Madness","NGO",1,6
+"node_268","Women Transforming our Nuclear Legacy","NGO",4,6
+"node_269","Ray McGovern","political expert",10,6
+"node_27","Eric Greitens","politician",2,12
+"node_270","William Binney","security expert",2,6
+"node_271","Matt Taibbi","journalist",8,6
+"node_272","Steven Crowder","journalist",5,7
+"node_273","Candance Owens","political activist",4,7
+"node_274","Mike Flynn","political advisor",3,12
+"node_275","Uncaptured Media","media",2,1
+"node_276","Gerald Celente","political expert",2,1
+"node_277","Angela McArdle","politician",17,1
+"node_278","Nick Brana","political activist",11,1
+"node_279","Tatiana Moroz","political activist",3,1
+"node_28","Blake Masters","politician",6,8
+"node_280","Center for Political Innovation","NGO",17,1
+"node_281","Lee Camp","journalist",2,1
+"node_282","Eugene Puryear","journalist",2,2
+"node_283","Cornel West","political activist",4,1
+"node_284","Turning Point USA","NGO",15,7
+"node_285","Natali Morris","journalist",2,9
+"node_286","Clayton Morris","social media influencer",2,9
+"node_287","Diane Sare","politician",1,1
+"node_288","Tara Reade","social media influencer",1,1
+"node_289","James Carden","journalist",9,6
+"node_29","James David Vance","politician",43,12
+"node_290","Vijay Prashad","political expert",2,6
+"node_291","Steve Bannon","political advisor",9,7
+"node_292","Roger Stone","political advisor",2,12
+"node_293","Katrina vanden Heuvel","journalist",9,6
+"node_294","Mark Ames","journalist",2,1
+"node_295","John Laughland","political expert",4,3
+"node_296","Seymour Hersh","journalist",3,1
+"node_297","Joe Pags Pagliarulo","journalist",2,8
+"node_298","Matt Walsh","social media influencer",6,7
+"node_299","Tim Pool","social media influencer",2,8
+"node_3","Brett Cooper","journalist",4,7
+"node_30","Ron Johnson","politician",4,12
+"node_300","Kyle Becker","journalist",4,8
+"node_301","Jake Morphonios","journalist",2,1
+"node_302","Scott Horton","journalist",8,1
+"node_303","Garland Nixon","journalist",6,1
+"node_304","Coreco Ja'Quan Pearson","political activist",2,8
+"node_305","Lee Stranahan","journalist",2,7
+"node_306","Glenn Beck","social media influencer",6,7
+"node_307","The Blaze","media",5,7
+"node_308","Conservative Review","media",7,7
+"node_309","Bring Our Troops Home","NGO",4,8
+"node_31","Lauren Boebert","politician",4,12
+"node_310","Dan McKnight","security expert",16,1
+"node_311","Alexander Kolodin","politician",3,12
+"node_312","The Libertarian Institute","think tank",8,7
+"node_313","Kyle Anzalone","journalist",6,7
+"node_314","The Squad (United States Congress)","political movement",16,4
+"node_315","Eisenhower Media Network","think tank",30,6
+"node_316","Dennis Fritz","security expert",4,6
+"node_317","Matthew Hoh","security expert",8,6
+"node_318","William J. Astore","security expert",2,6
+"node_319","Karen Kwiatkowski","security expert",2,6
+"node_32","Matt Gaetz","politician",12,12
+"node_320","Dennis Laich","security expert",2,6
+"node_321","Jack Matlock","security expert",4,6
+"node_322","Todd E. Pierce","security expert",2,6
+"node_323","Coleen Rowley","security expert",2,6
+"node_324","Christian Sorensen","security expert",2,6
+"node_325","Chuck Spinney","security expert",2,6
+"node_326","Winslow Wheeler","security expert",4,3
+"node_327","Lawrence Wilkerson","security expert",4,6
+"node_328","Ann Wright","security expert",12,6
+"node_329","Rick Rozoff","political activist",3,7
+"node_33","Marjorie Taylor Greene","politician",16,12
+"node_330","Eric Garris","political activist",2,7
+"node_331","John Thompson Parker","political activist",2,2
+"node_332","Kevin Akin","political activist",2,2
+"node_333","Marsha Feinland","political activist",1,2
+"node_334","Zach Farber","political activist",3,2
+"node_335","Party for Socialism and Liberation","political party",6,2
+"node_336","Bob Richard","political activist",1,2
+"node_337","David Campbell","political activist",2,2
+"node_338","C.T. Weber","political activist",2,2
+"node_339","African People’s Socialist Party","political party",17,2
+"node_34","Jim Banks","politician",1,12
+"node_340","The Burning Spear","media",17,2
+"node_341","Omali Yeshitela","political activist",20,2
+"node_342","Uhuru Movement","political movement",13,2
+"node_343","The African People’s Solidarity Committee","political movement",14,2
+"node_344","the Black is Back Coalition","political movement",16,2
+"node_345","Akile Anai","political activist",15,2
+"node_346","Oakland Green Party","political party",4,2
+"node_347","Matthew Schmitz","journalist",8,3
+"node_348","Christopher Caldwell","journalist",4,3
+"node_349","Compact Mag","media",10,3
+"node_35","Scott Perry","politician",1,12
+"node_350","Sohrab Ahmari","journalist",6,3
+"node_351","Mollie Ziegler Hemingway","political expert",4,8
+"node_352","The Real News Network","media",7,6
+"node_353","Conservative Action News","media",2,8
+"node_354","Cynthia Lazaroff","political activist",6,6
+"node_355","Jimmy Dore","social media influencer",17,1
+"node_356","Walt Zlotow","social media influencer",4,7
+"node_357","Tyler Koteskey","political expert",4,3
+"node_358","Patrick Henningsen","journalist",12,0
+"node_359","Global Research","think tank",16,0
+"node_36","Beth Van Duyne","politician",3,12
+"node_360","Veterans Today","media",13,0
+"node_361","Before It`s News","media",8,7
+"node_362","21st Century Wire","media",11,0
+"node_363","Real America's Voice","media",7,7
+"node_364","South Front","media",10,0
+"node_365","Michel Chossudovsky","media",5,0
+"node_366","Concerned Veterans for America","NGO",8,3
+"node_367","Bill Hagerty","politician",3,12
+"node_368","Mickey Kaus","journalist",2,16
+"node_369","Penny Hess","political activist",6,2
+"node_37","Brian Babin","politician",1,12
+"node_370","Chas Freeman","political expert",3,6
+"node_371","John Bellamy Foster","journalist",4,15
+"node_372","Henry Heller","scholar",4,15
+"node_373","David Bromwich","scholar",2,6
+"node_374","New Eastern Outlook","think tank",10,0
+"node_375","Sean McMeekin","scholar",2,3
+"node_376","Fox News","media",30,8
+"node_377","MAGA","political movement",22,12
+"node_378","Rage Against the War Machine","NGO",32,1
+"node_379","Strategic Culture Foundation","think tank",5,0
+"node_38","Kari Lake","politician",2,12
+"node_380","The Heritage Foundation","think tank",12,3
+"node_381","RAND Corporation","think tank",4,14
+"node_382","Daniel Kovalik","scholar",3,6
+"node_383","Marsha Blackburn","politician",1,12
+"node_384","John Barrasso","politician",1,12
+"node_385","Ted Budd","politician",1,12
+"node_386","Katie Britt","politician",1,12
+"node_387","Tom Cotton","politician",2,12
+"node_388","Ted Cruz","politician",4,12
+"node_389","Steve Daines","politician",1,12
+"node_39","Wendy Rogers","politician",2,12
+"node_390","Lindsey Graham","politician",1,12
+"node_391","Deb Fischer","politician",1,12
+"node_392","Markwayne Mullin","politician",1,12
+"node_393","Pete Ricketts","politician",1,12
+"node_394","Rick Scott","politician",1,12
+"node_395","Cindy Hyde-Smith","politician",1,12
+"node_396","Eric Schmitt","politician",1,12
+"node_397","Tim Scott","politician",1,12
+"node_398","Sarah Palin","politician",4,12
+"node_399","Peter Lavelle","journalist",2,7
+"node_4","Ben Shapiro","journalist",6,7
+"node_40","Paul Gosar","politician",7,12
+"node_400","James Lankford","politician",1,12
+"node_401","Libertarian Party","political party",12,1
+"node_402","Emma Ashford","political expert",4,3
+"node_403","The Center for the National Interest","think tank",15,3
+"node_404","Paul Robinson","political expert",4,11
+"node_405","Information Liberation","media",3,0
+"node_406","Grant Cardone","businessman",1,12
+"node_407","Brigitte Gabriel","political activist",2,7
+"node_408","Harriet Hageman","politician",4,12
+"node_409","Jim Garrison","political expert",1,6
+"node_41","Andrew Napolitano","political expert",8,7
+"node_410","The Nation","media",10,6
+"node_411","Fiorella Isabel","journalist",1,1
+"node_412","Common Dreams","media",8,6
+"node_413","Max Abrahms","political expert",2,11
+"node_414","Jordan Schachtel","journalist",5,7
+"node_415","Ben Cohen","businessman",4,6
+"node_416","Phyllis Bennis","political expert",2,6
+"node_417","Peace and Freedom Party","political party",29,2
+"node_418","The Federalist","media",8,8
+"node_419","Real Clear Investigations","media",2,8
+"node_42","Ted Galen Carpenter","political expert",5,3
+"node_420","RT","media",35,1
+"node_421","Stephen Gardner","social media influencer",6,7
+"node_422","Norman Solomon","journalist",3,6
+"node_423","ZeroHedge","media",3,0
+"node_424","Jeffrey David Sachs","economic expert",9,6
+"node_425","Alex Lorusso","political expert",2,7
+"node_426","Brian Berletic","political expert",2,0
+"node_427","Lucas Gage","political activist",4,1
+"node_428","Eva Bartlett","journalist",3,1
+"node_429","Unlimited Hangout","media",2,1
+"node_43","Cato Institute","think tank",16,3
+"node_430","Dmitry Orlov","economic expert",1,1
+"node_431","Tom Luongo","economic expert",2,7
+"node_432","David Hendrickson","political expert",2,11
+"node_433","George Eliason","journalist",1,1
+"node_434","Patrick Lancaster","journalist",4,0
+"node_435","Asia Times","others",1,1
+"node_436","Robert J.Sigg","others",1,7
+"node_437","Jordan Peterson","others",2,7
+"node_438","American Conservative Union","others",1,7
+"node_439","Black is Back Coalition","others",1,1
+"node_44","Christopher Layne","security expert",3,3
+"node_440","Kim Iversen","others",2,1
+"node_45","Benjamin Schwarz","journalist",3,3
+"node_46","Rand Paul","politician",7,12
+"node_47","Ron Paul","politician",30,1
+"node_48","Jill Stein","political activist",16,1
+"node_49","Bradley Devlin","journalist",4,3
+"node_5","Michael Knowles","journalist",4,12
+"node_50","Stephen Martin Walt","political expert",4,3
+"node_51","George Beebe","political expert",6,3
+"node_52","Christian Whiton","political expert",3,8
+"node_53","Dimitri K. Simes","political expert",5,3
+"node_54","William P. Ruger","political expert",3,3
+"node_55","Harry J. Kazianis","political expert",3,8
+"node_56","Kevin Roberts","political expert",3,3
+"node_57","Alexander Velez-Green","political expert",6,3
+"node_58","Elon Musk","businessman",8,8
+"node_59","Lora Ries","security expert",2,3
+"node_6","David Sacks","businessman",6,8
+"node_60","Noam Chomsky","political expert",12,6
+"node_61","Medea Benjamin","political activist",21,6
+"node_62","Marcy Winograd","political activist",6,6
+"node_63","Codepink","think tank",40,6
+"node_64","Chris Hedges","journalist",16,1
+"node_65","Stephen Kinzer","journalist",2,6
+"node_66","Katie Halper","journalist",2,6
+"node_67","David Swanson","political expert",6,6
+"node_68","World Beyond War","NGO",15,6
+"node_69","Daniel McAdams","political expert",6,1
+"node_7","Ron DeSantis","politician",12,8
+"node_70","Ron Paul Institute for Peace and Prosperity","think tank",6,1
+"node_71","Antiwar.com","media",22,7
+"node_72","Laura Loomer","politician",2,0
+"node_73","Stewart Peters","social media influencer",2,12
+"node_74","Jack Posobiec","political activist",9,0
+"node_75","Mike Johnson","politician",1,12
+"node_76","Mary Miller","politician",1,12
+"node_77","Troy Nehls","politician",1,12
+"node_78","Eric Burlison","politician",1,12
+"node_79","Andy Biggs","politician",1,12
+"node_8","Peter Thiel","businessman",12,8
+"node_80","Gus Bilirakis","politician",1,12
+"node_81","Jefferson Van Drew","politician",1,12
+"node_82","Anna Paulina Luna","politician",10,12
+"node_83","Mike Ezell","politician",1,12
+"node_84","Cory Mills","politician",3,12
+"node_85","Gavin Mario Wax","political activist",2,7
+"node_86","Chase Geiser","journalist",4,0
+"node_87","Alex Jones","journalist",12,0
+"node_88","InfoWars","media",26,0
+"node_89","Jackson Hinkle","social media influencer",13,1
+"node_9","Robert Francis Kennedy","politician",3,8
+"node_90","Clint Ehrlich","political expert",2,8
+"node_91","Josh Hawley","politician",3,3
+"node_92","Dan Bishop","politician",4,12
+"node_93","Ralph Norman","politician",1,12
+"node_94","Josh Brecheen","politician",1,12
+"node_95","Thomas Tiffany","politician",3,12
+"node_96","Kingsley Wilson","journalist",3,3
+"node_97","Heather Cordasco","political activist",2,3
+"node_98","Glenn Greenwald","journalist",3,8
+"node_99","Robby Starbuck","politician",3,8
