@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v6.js"></script>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+
+<style>
+  /* svg {
+    overflow: visible;
+  } */
+</style>
+
+
+<script>
+
+  var svgWidth = 1600, svgHeight = 800;
+
+  const clusters = ["0", "1", "2",  "3", "6", "7", "8", "12"] // оце непостійна штука, її робить gephi
+
+  const colorScale = d3.scaleOrdinal()
+    .domain(clusters)
+    .range(["green", "#9467bd", "#fb9a99", "#c49c94", "#a6cee3",
+      "orange", "pink", "red"]) // Use d3.schemeCategory10 for the specific values
+    .unknown("#808080"); // Use gray for all other values
+
+
+  const radiusScale = d3.scaleLinear()
+    .domain([1, 140])
+    .range([2, 8]);
+
+    const zoom = d3.zoom()
+      .scaleExtent([1, 12]) // This defines the minimum and maximum zoom scale
+       .on("zoom", function(event) {
+          svg.attr("transform", event.transform);
+      });
+
+  // set the dimensions and margins of the graph
+  const margin = { top: 120, right: 30, bottom: 30, left: 40 },
+    width = svgWidth - margin.left - margin.right,
+    height = svgHeight;
+
+
+  function linkArc(d) {
+  var dx = d.target.x - d.source.x,
+      dy = d.target.y - d.source.y,
+      dr = Math.sqrt(dx * dx + dy * dy);
+  return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,1 " + d.target.x + "," + d.target.y;
+}
+
+  // append the svg object to the body of the page
+  const svg = d3.select("#my_dataviz")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .call(zoom)
+    .append("g")
+    .attr("transform",
+      `translate(${margin.left}, ${margin.top})`);
+
+
+  let ids = [];
+
+  let data = {
+    "nodes": [],
+    "links": []
+  };
+
+  Promise.all([
+    d3.csv("nodes.csv"),
+    d3.csv("links.csv")
+  ]).then(function (files) {
+    const nodesData = files[0]; // Data from nodes.csv
+    const linksData = files[1]; // Data from links.csv
+
+    nodesData.forEach(function (d, i) {
+      //if(clusters.includes(d.modularity_class)){
+       // if(d.modularity_class == "12"){
+        data.nodes.push({
+        "id": d.id,
+        "name": d.name,
+        "group": d.modularity_class,
+        "radius": d.freq,
+      });
+      ids.push(d.id);
+  //  }
+     
+    });
+
+    //  data.nodes.forEach(node => {
+    //   node.group = Math.floor(Math.random() * 5) + 1;
+    // });
+
+    linksData.forEach(function (d, i) {
+      if( ids.includes(d.source) && ids.includes(d.target)){
+        data.links.push({
+        "source": d.source,
+        "target": d.target,
+
+      });
+      }
+     
+    });
+
+
+
+
+    console.log(data.links);
+
+
+    // Initialize the links
+    const links = svg
+     // .selectAll("path")
+      .selectAll("line")
+      .data(data.links)
+     // .join("path")
+      .join("line")
+      .attr("class", "link")
+      .style("stroke", "pink")
+
+    // Initialize the nodes
+    var nodes = svg.append("g")
+      .attr("class", "nodes")
+      .selectAll("g")
+      .data(data.nodes)
+      .enter().append("g");
+
+    nodes.append("circle")
+      .attr("r", function (d) { return radiusScale(d.radius); })
+      // .attr("r", 20)
+      .attr("fill", function (d) { return colorScale(d.group) })
+      // .style("opacity", function(d){ return d.radius > 15 ? 1 : 0.5})
+      
+
+    nodes.append("text")
+    .text(function(d){ return d.name; })
+    .attr("fill", "black")
+     .style("font-size", function(d){ return radiusScale(d.radius) / 2 + "px"; })
+    //.style("font-size", "2px")
+    .style("text-anchor", "middle");;
+
+    nodes
+  .on("mouseover", function(event, d) { highlightConnections(this); })
+  .on("mouseout", function(event, d) { unhighlightConnections(this); });
+
+
+    var simulation = d3.forceSimulation(data.nodes)
+      // Adjust charge force based on node attributes
+      .force('charge', d3.forceManyBody()
+          .strength(function(d){ return radiusScale(d.radius) * radiusScale(d.radius)  * -5; })
+        )
+      // Adjust link force based on link attributes
+      .force("link", d3.forceLink(data.links)
+        .id(d => d.id)
+         .distance(d => d.source.group === d.target.group ? 5 : 10) // Adjust distance based on group similarity
+        .strength(d => d.source.group === d.target.group ? 2 : 0.1) // Adjust strength based on group similarity
+      )
+      // Keep the center of gravity in the center of the SVG
+      .force("center", d3.forceCenter(svgWidth / 2, svgHeight / 2))
+      // .force("collide", d3.forceCollide().radius(3))
+
+      // .force("collide", d3.forceCollide().radius(function (d) { return radiusScale(d.radius) ; }))
+      // Add forces to keep nodes in the SVG boundaries
+      .force("x", d3.forceX().strength(0.1).x(svgWidth/2))
+      .force("y", d3.forceY().strength(0.3).y(svgHeight/2));
+
+    simulation.on("tick", ticked);
+
+
+    function highlightConnections(node) {
+  // Highlight the node
+  d3.select(node).select("circle").style("stroke", "black");
+
+  // Highlight its links
+  d3.selectAll(".link")
+    .filter(d => d.source.id === node.__data__.id || d.target.id === node.__data__.id)
+    .style("stroke", "black")
+    .each(function(d) {
+      // Highlight the connected nodes
+      d3.select(`#node${d.source.id}`).select("circle").style("stroke", "black");
+      d3.select(`#node${d.target.id}`).select("circle").style("stroke", "black");
+    });
+}
+
+function unhighlightConnections(node) {
+  // Unhighlight the node
+  d3.select(node).select("circle").style("stroke", null);
+
+  // Unhighlight its links
+  d3.selectAll(".link")
+    .filter(d => d.source.id === node.__data__.id || d.target.id === node.__data__.id)
+    .style("stroke", "lightgrey")
+    .each(function(d) {
+      // Unhighlight the connected nodes
+      d3.select(`#node${d.source.id}`).select("circle").style("stroke", null);
+      d3.select(`#node${d.target.id}`).select("circle").style("stroke", null);
+    });
+}
+    
+
+
+    function ticked() {
+      links
+      // .attr("d", function(d) {  return linkArc(d) })
+        .attr("x1", function (d) { return d.source.x; })
+        .attr("y1", function (d) { return d.source.y; })
+        .attr("x2", function (d) { return d.target.x; })
+        .attr("y2", function (d) { return d.target.y; })
+        .style("stroke-width", 0.2)
+        .style("stroke", "lightgrey")
+        .style("fill", "none");
+
+      nodes
+        .attr("transform", function (d) {
+          return "translate(" + d.x + "," + d.y + ")";
+        })
+    }
+
+
+
+
+  });
+
+
+
+
+</script>
+
+</body>
+</html>
