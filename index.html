@@ -11,9 +11,9 @@
 <div id="my_dataviz"></div>
 
 <style>
-  /* svg {
-    overflow: visible;
-  } */
+  p {
+    margin:0;
+  }
 </style>
 
 
@@ -21,8 +21,8 @@
 
   var svgWidth = 1600, svgHeight = 800;
 
-  const clusters = ["0", "1", "2",  "3", "6", "7", "8", "12"] // оце непостійна штука, її робить gephi
-
+  //const clusters = ["0", "1", "2",  "3", "6", "7", "8", "12"] // оце непостійна штука, її робить gephi або R
+  const clusters = ["125", "189"] 
   const colorScale = d3.scaleOrdinal()
     .domain(clusters)
     .range(["green", "#9467bd", "#fb9a99", "#c49c94", "#a6cee3",
@@ -30,9 +30,15 @@
     .unknown("#808080"); // Use gray for all other values
 
 
+
   const radiusScale = d3.scaleLinear()
     .domain([1, 140])
     .range([2, 8]);
+
+  //add nodes with text more space around to avoid labels overlapping
+  const labelsPaddingScale = d3.scaleLinear()
+    .domain([5, 50])
+    .range([3, 12]);
 
     const zoom = d3.zoom()
       .scaleExtent([1, 12]) // This defines the minimum and maximum zoom scale
@@ -72,23 +78,24 @@
   };
 
   Promise.all([
-    d3.csv("nodes.csv"),
-    d3.csv("links.csv")
+    d3.csv("nodes2.csv"),
+    d3.csv("links2.csv")
   ]).then(function (files) {
     const nodesData = files[0]; // Data from nodes.csv
     const linksData = files[1]; // Data from links.csv
 
     nodesData.forEach(function (d, i) {
       //if(clusters.includes(d.modularity_class)){
-       // if(d.modularity_class == "12"){
+     // if(d.modularity_class == "4"){
         data.nodes.push({
         "id": d.id,
         "name": d.name,
         "group": d.modularity_class,
         "radius": d.freq,
+        "text": d.text,
       });
       ids.push(d.id);
-  //  }
+  // }
      
     });
 
@@ -107,10 +114,13 @@
      
     });
 
+    var longestName = nodesData.filter(d => d.text === "y") // Filter to only include rows where "yes" is "y"
+  .reduce((a, b) => a.name.length > b.name.length ? a : b) // Find the row with the longest name
+  .name.length; // Get the name of that row
+
+  console.log(longestName);
 
 
-
-    console.log(data.links);
 
 
     // Initialize the links
@@ -121,7 +131,7 @@
      // .join("path")
       .join("line")
       .attr("class", "link")
-      .style("stroke", "pink")
+      
 
     // Initialize the nodes
     var nodes = svg.append("g")
@@ -134,15 +144,30 @@
       .attr("r", function (d) { return radiusScale(d.radius); })
       // .attr("r", 20)
       .attr("fill", function (d) { return colorScale(d.group) })
-      // .style("opacity", function(d){ return d.radius > 15 ? 1 : 0.5})
+      .style("opacity", 1)
+      .style("stroke", "white")
+      .style("stroke-width", 0.2)
       
 
+
     nodes.append("text")
-    .text(function(d){ return d.name; })
+    // .text(function(d){ return d.text === "y" ? d.name : ""; })
     .attr("fill", "black")
-     .style("font-size", function(d){ return radiusScale(d.radius) / 2 + "px"; })
-    //.style("font-size", "2px")
-    .style("text-anchor", "middle");;
+    .style("font-size", '2px' )
+    .style("text-anchor", "middle")
+    .each(function(d) {
+        if (d.text === "y") {
+            var arr = d.name.split(" ");
+            for (i = 0; i < arr.length; i++) {
+                d3.select(this).append("tspan")
+                    .text(arr[i])
+                    .attr("dy", i ? "1em" : -1)
+                    .attr("x", 0)
+                    .attr("text-anchor", "middle")
+                    .attr("class", "tspan" + i);
+            }
+        }
+    });
 
     nodes
   .on("mouseover", function(event, d) { highlightConnections(this); })
@@ -157,12 +182,15 @@
       // Adjust link force based on link attributes
       .force("link", d3.forceLink(data.links)
         .id(d => d.id)
-         .distance(d => d.source.group === d.target.group ? 5 : 10) // Adjust distance based on group similarity
-        .strength(d => d.source.group === d.target.group ? 2 : 0.1) // Adjust strength based on group similarity
+         .distance(d => d.source.group === d.target.group ? 5 : 50) // Adjust distance based on group similarity
+         .strength(d => d.source.group === d.target.group ? 2 : 0.2) // Adjust strength based on group similarity
       )
       // Keep the center of gravity in the center of the SVG
       .force("center", d3.forceCenter(svgWidth / 2, svgHeight / 2))
-      // .force("collide", d3.forceCollide().radius(3))
+     //.force("collide", d3.forceCollide().radius(1))
+      .force("collide", d3.forceCollide().radius(function(d) { 
+        return d.text === "y" ? labelsPaddingScale(d.name.length) : 2; 
+      }))
 
       // .force("collide", d3.forceCollide().radius(function (d) { return radiusScale(d.radius) ; }))
       // Add forces to keep nodes in the SVG boundaries
@@ -174,7 +202,7 @@
 
     function highlightConnections(node) {
   // Highlight the node
-  d3.select(node).select("circle").style("stroke", "black");
+  d3.select(node).select("circle").style("stroke", "black").style("stroke-width", 0.2);
 
   // Highlight its links
   d3.selectAll(".link")
@@ -189,7 +217,7 @@
 
 function unhighlightConnections(node) {
   // Unhighlight the node
-  d3.select(node).select("circle").style("stroke", null);
+  d3.select(node).select("circle").style("stroke", "white");
 
   // Unhighlight its links
   d3.selectAll(".link")
@@ -213,6 +241,7 @@ function unhighlightConnections(node) {
         .attr("y2", function (d) { return d.target.y; })
         .style("stroke-width", 0.2)
         .style("stroke", "lightgrey")
+        .style("opacity", "0.5")
         .style("fill", "none");
 
       nodes

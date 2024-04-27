@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://d3js.org/d3.v6.js"></script>
+</head>
+
+<body>
+
+    <style>
+        #viz {
+            display: block;
+            max-width: 100%;
+            max-height: 100vh;
+            margin: auto;
+        }
+
+        svg {
+            display: block;
+            max-width: 100%;
+            max-height: 100vh;
+            margin: auto;
+        }
+    </style>
+
+
+    <div id="viz"></div>
+
+    <script>
+
+        let positions = [
+            { id: "#path154", letter: "(", currentX: 1408.914, currentY: 820.019, targetX: 67.964, targetY: 670.185 },
+            { id: "#path160", letter: "N", currentX: 1511.945, currentY: 60.038, targetX: 136.605, targetY: 692.775 },
+            { id: "#path162", letter: "O", currentX: 1528.586, currentY: 57.870, targetX: 217.712, targetY: 682.208 },
+            { id: "#path156", letter: ")", currentX: 1687.785, currentY: 812.461, targetX: 338.459, targetY: 633.344 },
+            { id: "#path148", letter: "M", currentX: 1557.110, currentY: 178.439, targetX: 468.088, targetY: 692.775 },
+            { id: "#path150", letter: "O", currentX: 1676.688, currentY: 176.271, targetX: 565.250, targetY: 682.208 },
+            { id: "#path140", letter: "N", currentX: 1041.256, currentY: 244.081, targetX: 673.550, targetY: 692.775 },
+            { id: "#path142", letter: "E", currentX: 1056.045, currentY: 244.081, targetX: 762.087, targetY: 692.775 },
+            { id: "#path144", letter: "Y", currentX: 1332.877, currentY: 237.870, targetX: 872.920, targetY: 662.50 },
+            { id: "#path132", letter: "F", currentX: 522.101, currentY: 419.634, targetX: 1003.586, targetY: 692.775 },
+            { id: "#path134", letter: "O", currentX: 538.660, currentY: 417.466, targetX: 1084.293, targetY: 682.208 },
+            { id: "#path136", letter: "R", currentX: 559.555, currentY: 419.634, targetX: 1186.134, targetY: 692.775 },
+            { id: "#path166", letter: "U", currentX: 1664.441, currentY: 605.931, targetX: 1329.90, targetY: 657.248 },
+            { id: "#path168", letter: "K", currentX: 1685.746, currentY: 607.607, targetX: 1433.74, targetY: 665.415 },
+            { id: "#path170", letter: "R", currentX: 1702.609, currentY: 613.103, targetX: 1515.932, targetY: 692.204 },
+            { id: "#path172", letter: "A", currentX: 1718.008, currentY: 613.103, targetX: 1590.985, targetY: 692.204 },
+            { id: "#path174", letter: "I", currentX: 1737.848, currentY: 596.298, targetX: 1687.686, targetY: 610.297 },
+            { id: "#path176", letter: "N", currentX: 1743.953, currentY: 613.103, targetX: 1717.444, targetY: 692.204 },
+            { id: "#path178", letter: "E", currentX: 1758.742, currentY: 613.103, targetX: 1789.526, targetY: 692.204 },
+        ]
+
+        let speed = 100;
+
+        d3.xml("text/02.svg").then(data => {
+            let svg = d3.select("#viz").node().append(data.documentElement);
+
+            // Initially hide all 'g' elements
+            let allG = d3.select("svg").selectAll("g")
+                .style("opacity", 0);
+
+            let totalDuration = allG.size() * speed;
+
+
+            d3.selectAll("path")
+                .attr("initial-color", function (d) { return d3.select(this).attr("fill"); })
+                .attr("fill", "black");
+
+            allG.transition()
+                .delay((d, i) => i * speed) // 100ms delay between each 'g' element
+                .style("opacity", 1)
+
+            setTimeout(() => {
+                allG
+                    .selectAll("path")
+                    .attr("fill", function (d) { return d3.select(this).attr("initial-color"); })
+            }, totalDuration);
+
+            // ungroup, raise scale and move
+            setTimeout(() => {
+                positions.forEach((position, i) => {
+                    let pathElement = d3.select(position.id); 
+                    let parent = d3.select(pathElement.node().parentNode); 
+                    let svg = d3.select(pathElement.node().ownerSVGElement); 
+
+                    if (parent.node().tagName === 'g') {
+                        svg.node().appendChild(pathElement.node());
+                    }
+
+                    let s = 5;
+                    let dx = position.targetX - position.currentX * s;
+                    let dy = position.targetY - position.currentY * s;
+
+                    d3.select(position.id)
+                        .transition()
+                        .delay( i * 100) 
+                        .attr("transform", `translate(${dx}, ${dy}) scale(${s})`);
+                });
+
+            }, totalDuration + 200);
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>
