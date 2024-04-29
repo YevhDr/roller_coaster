@@ -35,6 +35,7 @@
     .domain([1, 140])
     .range([2, 8]);
 
+
   //add nodes with text more space around to avoid labels overlapping
   const labelsPaddingScale = d3.scaleLinear()
     .domain([5, 50])
@@ -141,33 +142,50 @@
       .enter().append("g");
 
     nodes.append("circle")
-      .attr("r", function (d) { return radiusScale(d.radius); })
+      .attr("r", function (d) { return d.text === "y"? radiusScale(d.radius) : 2 ; })
       // .attr("r", 20)
-      .attr("fill", function (d) { return colorScale(d.group) })
-      .style("opacity", 1)
+      .attr("fill", "#4E9EA1" )
+      .style("opacity", 0.5)
       .style("stroke", "white")
       .style("stroke-width", 0.2)
       
 
 
-    nodes.append("text")
-    // .text(function(d){ return d.text === "y" ? d.name : ""; })
-    .attr("fill", "black")
-    .style("font-size", '2px' )
-    .style("text-anchor", "middle")
-    .each(function(d) {
-        if (d.text === "y") {
-            var arr = d.name.split(" ");
-            for (i = 0; i < arr.length; i++) {
-                d3.select(this).append("tspan")
-                    .text(arr[i])
-                    .attr("dy", i ? "1em" : -1)
-                    .attr("x", 0)
-                    .attr("text-anchor", "middle")
-                    .attr("class", "tspan" + i);
+      nodes.each(function(d) {
+    if (d.text === "y") {
+        var text = d3.select(this).append("text")
+            .attr("fill", "black")
+            .style("font-size", '1.5px')
+            .style("text-anchor", "middle")
+            .attr("alignment-baseline", "middle")
+            .style("font-weight", "bold");
+
+        var arr = d.name.split(" ");
+        var tspan;
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i].length > 3) {
+                newArr.push(arr[i]);
+                tspan = null;
+            } else if (newArr.length && !tspan) {
+                newArr[newArr.length - 1] += " " + arr[i];
+                tspan = arr[i];
+            } else {
+                newArr.push(arr[i]);
             }
         }
-    });
+
+        var tspanCount = newArr.length;
+        for (i = 0; i < tspanCount; i++) {
+            text.append("tspan")
+                .text(newArr[i])
+                .attr("dy", i ? "1.2em" : -((tspanCount - 1) / 2) * 1.2 + "em") // Adjust dy for each tspan
+                .attr("x", 0)
+                .attr("text-anchor", "middle")
+                .attr("class", "tspan" + i);
+        }
+    }
+});
 
     nodes
   .on("mouseover", function(event, d) { highlightConnections(this); })
